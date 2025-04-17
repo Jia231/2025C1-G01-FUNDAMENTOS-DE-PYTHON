@@ -58,3 +58,11 @@ def analizar_ventas():
     print(f"Total de ventas: {total_ingresos}")
     curso_mas_vendido = df.groupby('curso')['cantidad'].sum().idxmax()
     print(f'El curso mas vendido es {curso_mas_vendido}')
+    cliente_mas_compras = df.groupby('cliente')['cantidad'].count().idxmax()
+    print(f'El cliente com mas compras es  {cliente_mas_compras}')
+    # result_df = df.groupby('Category').apply(lambda group: (group['Values1'] * group['Values2']).sum()).reset_index(name='Result')
+
+    ventas_por_fecha = df.groupby('fecha')['subtotal'].sum()
+    print("-----------Las ventas por fecha--------")
+    print(ventas_por_fecha)
+    
